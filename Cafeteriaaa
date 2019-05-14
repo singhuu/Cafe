@@ -1,0 +1,260 @@
+import java.util.*;
+public class Cafeteriaaa 
+{
+    public static void main(String[] args) 
+    {
+        Scanner kb=new Scanner(System.in);
+
+        // initialise total to start from zero
+        double total=0;
+
+        // starter prices: declare variable an assign values
+        double garlicBread=150.50;
+        double wingBucket=300;
+        double prawnSalad=450;
+
+        // main meal prices
+        double parsleyfish= 355;
+        double halfChicken= 330;
+        double mixedRoast=400;
+
+        // desert prices
+        double iceCream=50;
+        double fruit=100;
+        double cake=350;
+
+        // variable to allow user to select choice from the menu;
+        char choice,code;
+        String inpcode;
+        String codearr[] = {"10OFF","FREECOKE","TAXOFF","SUPERWEDNESDAY"};
+        String codeoutput[] = {"YOU GET A 10% DISCOUNT","FREE COKE HAS BEEN ADDED","YOUR TAX IS ON US","25% OFF"};
+        double codenum[] = {0.10,0,0.18,0.25};
+
+        // loop from here so that this is printed on the screen continuously till quite
+        do
+        {
+            System.out.println("\f|-----------------------------------------|");
+            System.out.println("|   Select from the choices below         |");
+            System.out.println("|-----------------------------------------|");
+            System.out.println("| Code     |         Description          |");
+            System.out.println("|-----------------------------------------|");
+            System.out.println("| S        | Starter                      |");
+            System.out.println("| M        | Main                         |");
+            System.out.println("| D        | Desert                       |");
+            System.out.println("|-----------------------------------------|");
+            System.out.println("| E        |           EXIT               |");
+            System.out.println("|-----------------------------------------|");
+            System.out.println();
+            System.out.println("Enter choice");
+
+            // user choice here
+            choice=kb.next().charAt(0);
+
+            // switch statement to allow user to select type of meal
+            switch(choice)
+            {
+                case 'S':   
+                do{
+                    System.out.println("\fYOUR CHOICE: "+choice);
+                    System.out.println("|-----------------------------------------|");
+                    System.out.println("|   Select starter from the choices below |");
+                    System.out.println("|-----------------------------------------|");
+                    System.out.println("| Code     |         Description          |");
+                    System.out.println("|-----------------------------------------|");
+                    System.out.println("| G        | Garlic bread        150.50   |");
+                    System.out.println("| B        | Bucket of wings     330.00   |");
+                    System.out.println("| P        | Prawn salad         450.00   |");
+                    System.out.println("|-----------------------------------------|");
+                    System.out.println("| R        |           RETURN             |");
+                    System.out.println("|-----------------------------------------|");
+                    System.out.println();
+                    System.out.println("Enter choice");
+
+                    // user choice here
+                    choice=kb.next().charAt(0);
+
+                    switch(choice)
+                    {
+                        case 'G' : System.out.println("Garlic bread selected");
+                        // rememeber that total was initialized from zero
+                        total=total+garlicBread;
+                        System.out.println("Current total Rs. " +total);
+                        break;
+
+                        case 'B' : System.out.println("Bucket of wings selected");
+                        total=total+wingBucket;
+                        System.out.println("Current total Rs. "+total);
+
+                        break;
+
+                        case 'P' : System.out.println("Prawn Salad");
+                        total=total+prawnSalad;
+                        System.out.println("Current total Rs. "+total);
+
+                        break;
+
+                        // return program to 1st screen
+                        case 'R' : System.out.println("Return Selected");
+                        break;
+
+                        // invalid entry or caps lock is off
+                        default:System.out.println("Invalid selection or check caps lock is on");
+
+                    }
+                }while(choice!='R');
+
+                // breaking here because we just dealt with our 1st case
+                break;
+
+                // second case here which is the mains
+                case 'M' :
+                do{
+                    System.out.println("\fYOUR CHOICE: "+choice);
+                    System.out.println("|-----------------------------------------|");
+                    System.out.println("| Select main meal from the choices below |");
+                    System.out.println("|-----------------------------------------|");
+                    System.out.println("| Code     |         Description          |");
+                    System.out.println("|-----------------------------------------|");
+                    System.out.println("| B        | Parsley fish        350.00   |");
+                    System.out.println("| H        | Half Chicken        330.00   |");
+                    System.out.println("| M        | Mixed Roast         400.00   |");
+                    System.out.println("|-----------------------------------------|");
+                    System.out.println("| R        |           RETURN             |");
+                    System.out.println("|-----------------------------------------|");
+                    System.out.println();
+                    System.out.println("Enter choice");
+
+                    // user choice here
+                    choice=kb.next().charAt(0);
+
+                    switch(choice)
+                    {
+                        case 'B':System.out.println("Parsley fish selected");
+                        total=total+parsleyfish;
+                        System.out.println("Current total Rs." +total);
+
+                        break;
+
+                        case 'H' :System.out.println("Half Chicken Selected");
+                        total=total+halfChicken;
+                        System.out.println("Current total Rs."+total);
+
+                        break;
+
+                        case 'M' :System.out.println("Mixed Roast Selected");
+                        total=total+parsleyfish;
+                        System.out.println("Current total Rs." +total);
+
+                        break;
+
+                        case 'R' :  System.out.println("Returning to fist screen");
+                        break;
+
+                        default:System.out.println("Invalid selection or check caps lock is on");
+
+                    }
+                }while(choice!='R');
+                // break here:end of main meals switch statement;
+                break;
+
+                case 'D' :
+                do{
+                    System.out.println("\fYOUR CHOICE: "+choice);
+                    System.out.println("|-----------------------------------------|");
+                    System.out.println("|   Select desert from the choices below  |");
+                    System.out.println("|-----------------------------------------|");
+                    System.out.println("| Code     |         Description          |");
+                    System.out.println("|-----------------------------------------|");
+                    System.out.println("| I        | Ice cream           50.00    |");
+                    System.out.println("| F        | Fruit              100.00    |");
+                    System.out.println("| C        | Cake               350.00    |");
+                    System.out.println("|-----------------------------------------|");
+                    System.out.println("| R        |           RETURN             |");
+                    System.out.println("|-----------------------------------------|");
+                    System.out.println();
+                    System.out.println("Enter choice");
+
+                    // user choice here
+                    choice=kb.next().charAt(0);
+
+                    switch(choice)
+                    {
+                        case 'I':System.out.println("Ice cream  selected");
+                        total=total+iceCream ;
+                        System.out.println("Current total Rs." +total);
+
+                        break;
+
+                        case 'F' :System.out.println("Fruit  Selected");
+                        total=total+fruit;
+                        System.out.println("Current total Rs." +total);
+
+                        break;
+
+                        case 'C' :System.out.println("Cake Selected");
+                        total=total+cake;
+                        System.out.println("Current total Rs. "+total);
+
+                        break;
+
+                        case 'R' :  System.out.println("Returning to fist screen");
+                        break;
+
+                        default:System.out.println("Invalid selection or check caps lock is on");
+
+                    }
+                }while(choice!='R');
+                // break here:end of main meals switch statement;
+                break;
+
+                // exiting the from the whole program here
+                case 'E' :  System.out.println("EXITING SYSTEM");
+                break;
+
+                default:System.out.println("Invalid selection or check caps lock is on");
+
+            }
+
+        }while(choice!='E');
+        do{
+        System.out.print("\fDO YOU HAVE A CODE? (Y/N): ");
+        code = kb.next().charAt(0);
+    }while(code != 'Y' && code != 'N' && code != 'y' && code != 'n');
+         switch(code)
+        {
+            
+            case 'Y':
+            case 'y': System.out.print("ENTER CODE: ");
+            inpcode = kb.next();
+            for(int i =0; i<4;i++)
+            {
+                if(codearr[i].equalsIgnoreCase(inpcode))
+                {
+                    System.out.println(codeoutput[i]);
+                    System.out.println("\f* * * * BILL * * * *");
+                    System.out.println("CODE USED             :           "+codearr[i]);
+                    System.out.println("INITAL AMOUNT         :       Rs. "+total);
+                    System.out.println("TAX                   :       Rs. "+(0.18*total));
+                    System.out.println("AMOUNT AFTER TAX      :       Rs. "+(total+(0.18*total)));
+                    System.out.println("DISCOUNT (ON INITIAL AMOUNT): Rs. (-)"+(codenum[i]*total));
+                    System.out.println("-----------------------------------------");
+                    System.out.println("YOU BILL TOTAL (INCLUDING 18% TAX) IS Rs. "+(total+(0.18*total)-(codenum[i]*total)));
+                }
+
+            }
+            break;
+            case 'n':
+            case 'N':System.out.println("\f* * * * BILL * * * *");
+                     System.out.println("INITAL AMOUNT         :       Rs. "+total);
+                     System.out.println("TAX                   :       Rs. "+(0.18*total));
+                     System.out.println("AMOUNT AFTER TAX      :       Rs. "+(total+(0.18*total)));
+                     System.out.println("DISCOUNT (ON INITIAL AMOUNT): Rs. 0");
+                     System.out.println("-----------------------------------------");
+                     System.out.println("YOU BILL TOTAL (INCLUDING 18% TAX) IS Rs. "+(total+(0.18*total)));
+                     break;
+            default: System.out.println("WRONG INPUT");
+        
+    }
+    }
+}
+
